@@ -7,6 +7,7 @@ import Button from '@mui/material/Button';
 export function BooksInfo(){
 
     const[Book,setBook ]=useState([]);
+    const[CartBook,setCartBook ]=useState([]);
     const{id}=useParams();
     const getParticularBookData=()=>{
     
@@ -14,15 +15,20 @@ export function BooksInfo(){
             .then((data)=>data.json())
             .then((abc)=>setBook(abc))
     }
-    useEffect(getParticularBookData,[id]);
 
-    return(
+    const add=()=>{
+        fetch(`${apiUrl}/cart/${id}`,{method:"GET"})
+            .then((data)=>data.json())
+            .then((abc)=>setCartBook(abc))
+    }
+    useEffect(getParticularBookData, [id]);
+
+    return (
         <div>
             <img src={Book.Imageurl} alt="poster" />
             <p>{Book.BookName}</p>
             <p>By:{Book.Author}</p>
-            <Button  color="secondary" variant="text">More</Button>
-            
+            <Button onClick={()=>add(id)} color="secondary" variant="text">Add to cart</Button> 
             <p>{Book.Description}</p>
             <p>{Book.Joner}</p>
             <p>{Book.Language}</p>

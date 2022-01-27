@@ -8,6 +8,7 @@ import { Welcome } from "./welcome";
 import { Bookslist} from "./homePage"
 import {BooksInfo} from "./bookInfo"
 import {Genre} from "./genre"
+import { DisplayCart } from './displayCart';
 
 
 function App() {
@@ -34,6 +35,9 @@ function App() {
         </Route>
         <Route exact path="/welcome">
           <Welcome />
+        </Route>
+        <Route exact path="/cart">
+          <DisplayCart />
         </Route>
       </Switch>
     </div>

@@ -31,8 +31,7 @@ export function Bookslist() {
                     <Link to="/allbooks/Poetry">Poetry</Link>
                 </div>
 
-                <div className="rigth">
-                    <div>
+                <div className="right">
                         {Books.map(({ _id,
                             PublicationDate,
                             Genre,
@@ -58,7 +57,6 @@ export function Bookslist() {
                                 price={Price}
                                 publisher={Publisher}
                                 rating={Rating} />)}
-                    </div>
 
                 </div>
             </div>
