@@ -1,15 +1,10 @@
-.App{
-    background: #141E30;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    
-  
-  }
-  .App{
+
+  /* .App{
     display: flex;
-    justify-content: center;
-    height: 100vh;
-  }
+    width: 100%;
+    background-color: rgb(4, 32, 83);
+  } */
+
   .loginContentContainer,.forgetPasswordContentContainer{
     margin-top: 14rem;
     display: flex;
@@ -56,3 +51,54 @@
   .logoutfields{
     width: 4rem;
   }
+
+  .bookContainer{
+    height: 30rem;
+    width: 15rem;
+    margin: 5rem;
+    background-color: white;
+  }
+
+  .bookPoster{
+    height: 20rem;
+    margin-top: 0%;
+    width:15rem;
+    object-fit:fill;
+
+  }
+  /* .title{
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    padding: 1em;
+    margin-bottom: 2em;
+    background-color: white;
+    color: #fff;
+  } */
+.twocontainers{
+  display: flex;
+}
+
+.top{
+  height: 5rem;
+  width: 100%;
+  background-color: red;
+  margin-left: 2rem;
+}
+.left{
+  margin: 5rem;
+  height: 15rem;
+  width: 20rem;
+  background-color: white;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.right{
+  display: flex;
+  background-color: red;
+}
