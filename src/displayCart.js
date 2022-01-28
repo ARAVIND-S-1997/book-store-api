@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react"
 import { apiUrl } from "./homePage"
 import Button from '@mui/material/Button';
-
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import TextField from '@mui/material/TextField';
 
 export function DisplayCart() {
     const [Books, setBooks] = useState([])
@@ -14,17 +16,29 @@ export function DisplayCart() {
     }
     useEffect(getAllBookData, [])
     return (
-
-        <div className="bookContainer">
-            {Books.map(({BookName, Author, Price, Imageurl, _id}) => {
-                return (<div key={_id}>
-                    <img src={Imageurl} alt='pic'></img>
-                    <p>name:{BookName}</p>
-                    <p>Author:{Author}</p>
-                    <p>Price:{Price}</p>
-                    <Button color="secondary" variant="text">Buy Now</Button> 
-                </div>)
-            })}
+        <div>
+            <div className="appBar">
+                <img src="https://www.bookswagon.com/images/logos/logo-new.png" alt="logo" />
+                <TextField className="searchField" label="Search input" />
+            </div>
+            <div className="cartContainer">
+                {Books.map(({ BookName, Author, Price, Imageurl, _id }) => {
+                    return (
+                        <div className="cartContainerContent" key={_id}>
+                            <Card>
+                                <img className="cartContentImg" src={Imageurl} alt='pic'></img>
+                                <CardContent>
+                                    <div className="cartContinerTwo">
+                                        <h4>{BookName}</h4>
+                                        <h4>Author:{Author}</h4>
+                                        <h4>Price:{Price}</h4>
+                                        <Button color="secondary" color="error" variant="contained">Buy Now</Button>
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        </div>)
+                })}
+            </div>
         </div>
 
     )

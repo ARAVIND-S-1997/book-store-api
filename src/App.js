@@ -1,13 +1,11 @@
-
 import './App.css';
 import { Login } from "./loginPage"
 import { Switch, Route } from "react-router-dom";
 import { SignUp } from "./signUp";
 import { ForgetPassword } from './forgetPassword';
-import { Welcome } from "./welcome";
-import { Bookslist} from "./homePage"
-import {BooksInfo} from "./bookInfo"
-import {Genre} from "./genre"
+import { Bookslist } from "./homePage"
+import { BooksInfo } from "./bookInfo"
+import { Genre } from "./genre"
 import { DisplayCart } from './displayCart';
 
 
@@ -24,20 +22,17 @@ function App() {
         <Route exact path="/book/:id">
           <BooksInfo />
         </Route>
+        <Route exact path="/cart">
+          <DisplayCart />
+        </Route>
         <Route exact path="/login">
           <Login />
-        </Route>
-        <Route exact path="/forgetpassword">
-          <ForgetPassword />
         </Route>
         <Route exact path="/signup">
           <SignUp />
         </Route>
-        <Route exact path="/welcome">
-          <Welcome />
-        </Route>
-        <Route exact path="/cart">
-          <DisplayCart />
+        <Route exact path="/forgetpassword">
+          <ForgetPassword />
         </Route>
       </Switch>
     </div>
