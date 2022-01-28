@@ -10,7 +10,7 @@ import { useHistory } from "react-router-dom";
 
 export function BooksInfo() {
     const [Book, setBook] = useState([]);
-    const [CartBook, setCartBook] = useState([]);
+    const [, setCartBook] = useState([]);
     const { id } = useParams();
     const history = useHistory();
     const getParticularBookData = () => {

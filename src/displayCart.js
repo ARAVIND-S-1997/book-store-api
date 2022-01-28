@@ -32,7 +32,7 @@ export function DisplayCart() {
                                         <h4>{BookName}</h4>
                                         <h4>Author:{Author}</h4>
                                         <h4>Price:{Price}</h4>
-                                        <Button color="secondary" color="error" variant="contained">Buy Now</Button>
+                                        <Button color="error" variant="contained">Buy Now</Button>
                                     </div>
                                 </CardContent>
                             </Card>

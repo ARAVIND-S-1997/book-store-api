@@ -12,7 +12,7 @@ export function Genre() {
             .then((data) => data.json())
             .then((abc) => setGenre(abc))
     }
-    useEffect(getParticularGenre, [])
+    useEffect(getParticularGenre, [genre])
     return (
         <div>
             <div className="appBar">
