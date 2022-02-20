@@ -8,12 +8,23 @@ import TextField from '@mui/material/TextField';
 export function DisplayCart() {
     const [Books, setBooks] = useState([])
     console.log(Books)
+
+  
+
     const getAllBookData = () => {
         fetch(`${apiUrl}/cartBooks`, { method: "GET" })
             .then((data) => data.json())
             .then((abc) => setBooks(abc));
-
     }
+    const deleteCartBooks=(BookName)=>{
+        console.log(BookName)
+        fetch(`${apiUrl}/deletecartBooks/${BookName}`, { method: "DELETE" })
+        .then(()=>getAllBookData())
+        
+    }
+
+
+
     useEffect(getAllBookData, [])
     return (
         <div>
@@ -22,7 +33,7 @@ export function DisplayCart() {
                 <TextField className="searchField" label="Search input" />
             </div>
             <div className="cartContainer">
-                {Books.map(({ BookName, Author, Price, Imageurl, _id }) => {
+                {Books.map(({ BookName, Author, Price, Imageurl, _id }) => { 
                     return (
                         <div className="cartContainerContent" key={_id}>
                             <Card>
@@ -33,6 +44,7 @@ export function DisplayCart() {
                                         <h4>Author:{Author}</h4>
                                         <h4>Price:{Price}</h4>
                                         <Button color="error" variant="contained">Buy Now</Button>
+                                        <Button onClick={()=>deleteCartBooks(BookName)} color="error" variant="contained">Delete</Button>
                                     </div>
                                 </CardContent>
                             </Card>

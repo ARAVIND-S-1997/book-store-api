@@ -14,7 +14,8 @@ export function BooksInfo() {
     const { id } = useParams();
     const history = useHistory();
     const getParticularBookData = () => {
-        fetch(`${apiUrl}/allbooks/${id}`, { method: "GET" })
+   
+            fetch(`${apiUrl}/allbooks/${id}`, { method: "GET" })
             .then((data) => data.json())
             .then((abc) => setBook(abc))
     }
@@ -47,7 +48,6 @@ export function BooksInfo() {
                             <h4>Published by:{Book.Publisher}</h4>
                             <Button onClick={() => add(id)} color="error" variant="contained">Add to cart</Button>
                         </div>
-
                     </div>
                     <CardContent>
 

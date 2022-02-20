@@ -7,6 +7,7 @@ import { Bookslist } from "./homePage"
 import { BooksInfo } from "./bookInfo"
 import { Genre } from "./genre"
 import { DisplayCart } from './displayCart';
+import {Welcome} from "./welcomepage"
 
 
 function App() {
@@ -27,6 +28,9 @@ function App() {
         </Route>
         <Route exact path="/login">
           <Login />
+        </Route>
+        <Route exact path="/welcome">
+          <Welcome />
         </Route>
         <Route exact path="/signup">
           <SignUp />
