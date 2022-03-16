@@ -7,6 +7,7 @@ import { useHistory } from 'react-router-dom';
 import { apiUrl } from './homePage';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
+import axios from 'axios';
 
 
 
@@ -58,24 +59,54 @@ import * as yup from 'yup';
 //     )
 // }
 
+const formvalidation=yup.object(
+    {
+        emailid: yup
+        .string()
+        .required("email needs to be filled"),
+        password: yup
+        .string()
+        .required("Password should not be empty")
+    }
+)
 export function Login() {
+    const history = useHistory();
+    const { values, errors, touched, handleChange, handleBlur, handleSubmit } = useFormik({
+        initialValues: { emailid: "", password: "" },
+        validationSchema: formvalidation,
+        onSubmit: (userdata) => loginReq(userdata)
 
+    })
+    const loginReq = (datas) => {
+        // fetch(`${apiUrl}/login`,
+        //     {
+        //         method: "POST",
+        //         body: JSON.stringify(datas),
+        //         headers: { "Content-Type": "application/json", },
+        //     })
+        //     .then((data)=>{
+        //     // if(data.status==200){
+        //     // history.push("/welcome")
+        //     console.log(data)
+        //     }
+        //     // else{
+        //     //     console.log(data)
+        //     // }}
+        //     )
+        //     .catch()
 
-const {values,errors,touched,handleChange,handleBlur, handleSubmit}=useFormik({
-    initialValues:{emailid:"",password:""},
-   
-})
-console.log(values)
-const history = useHistory();
-    const loginReq = () => {
-        fetch(`${apiUrl}/login`,
-            {
-                method: "POST",
-                body: JSON.stringify(values),
-                headers: { "Content-Type": "application/json", },
-            })
-            .then(() => { history.push("/welcome") })
-            .catch()
+        axios({ url: `${apiUrl}/login`, method: "POST", data: datas })
+        .then((data) => {
+            if (data.status == 200) {
+                history.push("/welcome")
+            }
+            else {
+                console.log(data)
+            }
+
+        })
+
+        .catch()
            
 
     }
