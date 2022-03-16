@@ -6,18 +6,22 @@ import TextField from '@mui/material/TextField';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import { useHistory } from "react-router-dom";
+// import searchbooks from "homePage"
 
 
 export function BooksInfo() {
     const [Book, setBook] = useState([]);
     const [, setCartBook] = useState([]);
     const { id } = useParams();
+    console.log(Book)
     const history = useHistory();
     const getParticularBookData = () => {
-   
             fetch(`${apiUrl}/allbooks/${id}`, { method: "GET" })
             .then((data) => data.json())
-            .then((abc) => setBook(abc))
+            .then((abc)=>setBook(abc))
+
+   
+         
     }
     const add = () => {
         fetch(`${apiUrl}/cart/${id}`, { method: "GET" })

@@ -7,12 +7,15 @@ import { Bookslist } from "./homePage"
 import { BooksInfo } from "./bookInfo"
 import { Genre } from "./genre"
 import { DisplayCart } from './displayCart';
-import {Welcome} from "./welcomepage"
+import { Useraddress } from './AddressManager';
+import { Profiledashboard } from './profiledashbord';
+import { Changepassword } from './changepassword';
 
 
 function App() {
   return (
     <div className="App">
+
       <Switch>
         <Route exact path="/">
           <Bookslist />
@@ -29,14 +32,20 @@ function App() {
         <Route exact path="/login">
           <Login />
         </Route>
-        <Route exact path="/welcome">
-          <Welcome />
-        </Route>
         <Route exact path="/signup">
           <SignUp />
         </Route>
         <Route exact path="/forgetpassword">
           <ForgetPassword />
+        </Route>
+        <Route exact path="/useraddress">
+          <Useraddress />
+        </Route>
+        <Route exact path="/profiledashboard">
+          <Profiledashboard />
+        </Route>
+        <Route exact path="/changepassword/:token">
+          <Changepassword/>
         </Route>
       </Switch>
     </div>

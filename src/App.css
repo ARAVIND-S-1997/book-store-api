@@ -119,6 +119,8 @@
  width: 30rem;
  background-color:  white;
  border-radius: 0.3rem;
+
+ margin: 2rem;
 }
 
 
@@ -200,3 +202,39 @@
   justify-content: space-evenly;
 }
 
+.temp{
+  display: flex;
+  align-items:center;
+  flex-direction: column;
+  margin: 2rem;
+}
+
+/* Profiledashboard styling */
+
+.profiledashboard-two-components{
+  display: flex;
+  flex-direction: row;
+}
+
+.profiledashboard-leftcomponent{
+  background-color: blue;
+  height: 8rem;
+  width: 300px;
+  border-radius:0.2rem;
+  margin-left: 1rem;
+}
+
+.profiledashboard-rightcomponent{
+  background-color:red;
+  height:100vh;
+  width: 100%;
+  border-radius: 0.2rem;
+  margin-left: 1rem;
+}
+
+
+.profiledashboard-leftcomponent-content{
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+}
