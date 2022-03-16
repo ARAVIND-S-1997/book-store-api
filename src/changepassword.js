@@ -8,10 +8,11 @@ import Card from '@mui/material/Card';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 // file imports
 import { apiUrl } from './homePage';
-import { useEffect } from 'react';
+
 
 const formvalidation=yup.object(
     {
@@ -29,6 +30,7 @@ const formvalidation=yup.object(
 
 export function Changepassword(){
     const{token}=useParams();
+    const history=useHistory();
     const{values,errors,touched,handleChange,handleSubmit,handleBlur}=useFormik({
         initialValues:{password:""},
         validationSchema:formvalidation,
@@ -37,7 +39,14 @@ export function Changepassword(){
                 authtoken:token
             }
             axios({url:`${apiUrl}/changepassword`,method:"post",headers:auth,data:data})
-            .then((response)=>console.log(response))
+            .then((response)=>{
+                if(response.status===200){
+                (history.push("/"))
+                }
+                else{
+                console.log("error occured")
+                }
+            })
         })
     }) 
   
