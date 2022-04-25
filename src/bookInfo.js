@@ -6,7 +6,9 @@ import TextField from '@mui/material/TextField';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import { useHistory } from "react-router-dom";
-// import searchbooks from "homePage"
+
+
+import {authtoken } from "./homePage";
 
 
 export function BooksInfo() {
@@ -18,10 +20,7 @@ export function BooksInfo() {
     const getParticularBookData = () => {
             fetch(`${apiUrl}/allbooks/${id}`, { method: "GET" })
             .then((data) => data.json())
-            .then((abc)=>setBook(abc))
-
-   
-         
+            .then((abc)=>setBook(abc))   
     }
     const add = () => {
         fetch(`${apiUrl}/cart/${id}`, { method: "GET" })
@@ -34,7 +33,7 @@ export function BooksInfo() {
             <div className="appBar">
                 <img src="https://www.bookswagon.com/images/logos/logo-new.png" alt="logo" />
                 <TextField className="searchField" label="Search input" />
-                <Button onClick={() => { history.push(`/cart`) }} className="appCart" color="error" variant="contained">Cart</Button>
+                {(authtoken)?<Button onClick={() => { history.push(`/cart`) }} className="appCart" color="error" variant="contained">Cart</Button>:""}
             </div>
             <div className="bookInfoContainer">
                 <Card>
@@ -50,7 +49,9 @@ export function BooksInfo() {
                             <h4>Price:{Book.Price}</h4>
                             <h4>Published in:{Book.PublicationDate}</h4>
                             <h4>Published by:{Book.Publisher}</h4>
-                            <Button onClick={() => add(id)} color="error" variant="contained">Add to cart</Button>
+                            <Button onClick={() => {
+                                (authtoken)?add(id):(history.push("/login"))
+                                }} color="error" variant="contained">Add to cart</Button>
                         </div>
                     </div>
                     <CardContent>

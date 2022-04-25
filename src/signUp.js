@@ -51,9 +51,6 @@ export function SignUp() {
 
     })
 
-
-
-
     const signUpReq = (datas) => {
         axios({ url: `${apiUrl}/signup`, method: "POST", data: datas })
             .then((data) => {
@@ -73,8 +70,7 @@ export function SignUp() {
     return (
         <div>
             <div className="appBar">
-                <img src="https://www.bookswagon.com/images/logos/logo-new.png" alt="logo" />
-                <TextField className="searchField" label="Search input" />
+               
             </div>
             <div className="SignUPContentContainer">
                 <Card>

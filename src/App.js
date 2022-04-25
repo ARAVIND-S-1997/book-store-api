@@ -10,6 +10,7 @@ import { DisplayCart } from './displayCart';
 import { Useraddress } from './AddressManager';
 import { Profiledashboard } from './profiledashbord';
 import { Changepassword } from './changepassword';
+import{Orderpage}from"./orderpage"
 
 
 function App() {
@@ -46,6 +47,9 @@ function App() {
         </Route>
         <Route exact path="/changepassword/:token">
           <Changepassword/>
+        </Route>
+        <Route exact path="/addressinfo">
+          <Orderpage/>
         </Route>
       </Switch>
     </div>

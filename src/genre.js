@@ -7,12 +7,13 @@ import TextField from '@mui/material/TextField';
 export function Genre() {
     const [Genre, setGenre] = useState([]);
     const { genre } = useParams();
+    console.log(genre)
     const getParticularGenre = () => {
-        fetch(`${apiUrl}/particular/${genre}`)
+        fetch(`${apiUrl}/genre/particular/${genre}`)
             .then((data) => data.json())
             .then((abc) => setGenre(abc))
     }
-    useEffect(getParticularGenre, [genre])
+    useEffect(getParticularGenre, [])
     return (
         <div>
             <div className="appBar">

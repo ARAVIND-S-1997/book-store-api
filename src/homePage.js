@@ -1,8 +1,9 @@
+// other imports
 import { useEffect, useState } from "react"
 import { Display } from "./display"
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
-import  axios  from "axios"
+import axios from "axios"
 
 // Material ui import statements
 import Button from '@mui/material/Button';
@@ -19,6 +20,12 @@ import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import Logout from '@mui/icons-material/Logout';
+import Paper from '@mui/material/Paper';
+import InputBase from '@mui/material/InputBase';
+import SearchIcon from '@mui/icons-material/Search';
+
+// import { useParams } from "react-router-dom";
+
 
 
 
@@ -28,23 +35,38 @@ export const authemail = localStorage.getItem("emailid")
 console.log(authtoken, authemail);
 
 // Application programming interface url
-export const apiUrl = "http://localhost:9000/books";
+export const apiUrl = "http://localhost:8000";
 
 export function Bookslist() {
     const [Books, setBooks] = useState([]);
-    console.log(Books)
-    const history = useHistory();
-    // const [searchbooks, setsearchbooks] = useState([]);
-    // const history = useHistory()
-    const getAllBookData = () => {
-        const auth = {
-            token: authtoken
-        }
+    console.log(Books);
 
-        axios({ url: `${apiUrl}/allbooks`, method: "GET", headers: auth })
-            .then((response) => setBooks(response.data.getBooksData));
+    const [searchbooks, setsearchbooks] = useState([]);
+    console.log(searchbooks)
+
+    const history = useHistory();
+
+    useEffect(() => {
+        axios({ url: `${apiUrl}/books/allbooks`, method: "GET" })
+            .then((response) => setBooks(response.data.Books));
+    }, [])
+
+    const search = () => {
+        axios({ url: `${apiUrl}/${searchbooks}`, method: "get" })
+            .then((response) => setBooks(response.data.book))
     }
-    useEffect(getAllBookData, [])
+
+    // useEffect(search, [searchbooks]);
+    // const getbooks = () => {
+    //     axios({ url: `${apiUrl}/allbooks`, method: "GET" })
+    //         .then((response) => setBooks(response.data.Books));
+    // }
+
+    // const particularbook = (bookname) => {
+    //   
+    // }
+
+    // useEffect(getbooks,[])
 
     // Material ui codes for dropdown menu in homepage
     const [anchorEl, setAnchorEl] = useState(null);
@@ -62,7 +84,31 @@ export function Bookslist() {
                 // content to render before login
                 <div className="appBar">
                     <img src="https://www.bookswagon.com/images/logos/logo-new.png" alt="logo" />
-                    <TextField className="searchField" label="Search input" />
+
+                    <Paper
+                        component="form"
+                        sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 400 }}
+                    >
+                        <InputBase
+                            sx={{ ml: 1, flex: 1 }}
+                            placeholder="Search "
+                            inputProps={{ 'aria-label': 'search' }}
+                            onChange={(event) => setsearchbooks(event.target.value)}
+                        />
+                        <IconButton onClick={() => search} type="submit" sx={{ p: '10px' }} aria-label="search">
+                            <SearchIcon />
+                        </IconButton>
+                        {/* <Button onClick={()=>search}></Button> */}
+                    </Paper>
+
+                    {/* <TextField onChange={(event)=>{(event.target.values),
+    console.log(event)}}className="searchField" label="Search input" /> 
+    <Button onClick={()=>search}></Button> */}
+
+
+
+
+
                     <Button onClick={() => { history.push(`/login`) }} className="appLogIN" color="error" variant="contained">
                         <AccountCircleRoundedIcon />
                         Login
@@ -71,7 +117,21 @@ export function Bookslist() {
                 //  content to be render after login
                 <div className="appBar">
                     <img src="https://www.bookswagon.com/images/logos/logo-new.png" alt="logo" />
-                    <TextField className="searchField" label="Search input" />
+                    <Paper
+                        component="form"
+                        sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 400 }}
+                    >
+                        <InputBase
+                            sx={{ ml: 1, flex: 1 }}
+                            placeholder="Search "
+                            inputProps={{ 'aria-label': 'search' }}
+                            onChange={(event) => setsearchbooks(event.target.value)}
+                        />
+                        <IconButton onClick={() => search} type="submit" sx={{ p: '10px' }} aria-label="search">
+                            <SearchIcon />
+                        </IconButton>
+                        {/* <Button onClick={()=>search}></Button> */}
+                    </Paper>
 
                     {/* The below codes are material ui codes */}
                     <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
@@ -141,13 +201,14 @@ export function Bookslist() {
                 <div className="left">
                     <Card >
                         <CardContent className="leftCardContents" >
+                            <Button onClick={history.push("/")}>Home</Button>
                             <h3>Browse by category</h3>
-                            <Link to="/allbooks/Computer & Internet">Computer&Internet</Link>
-                            <Link to="/allbooks/Comics">Graphic Novel</Link>
-                            <Link to="/allbooks/Fantasy">Fantasy</Link>
-                            <Link to="/allbooks/Romance">Romance</Link>
-                            <Link to="/allbooks/Fiction">Fiction</Link>
-                            <Link to="/allbooks/Poetry">Poetry</Link>
+                            <Button onClick={() => history.push("/allbooks/Computer & Internet")}>Computer&Internet</Button>
+                            <Button onClick={() => history.push("/allbooks/Comics")}>Graphic Novel</Button>
+                            <Button onClick={() => history.push("/allbooks/Fantasy")}>Fantasy</Button>
+                            <Button onClick={() => history.push("/allbooks/Romance")}>Romance</Button>
+                            <Button onClick={() => history.push("/allbooks/Fiction")}>Fiction</Button>
+                            <Button onClick={() => history.push("/allbooks/Poetry")}>Poetry</Button>
                         </CardContent>
                     </Card>
                 </div>
