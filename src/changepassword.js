@@ -52,10 +52,6 @@ export function Changepassword(){
   
    return(
     <div>
-    <div className="appBar">
-        <img src="https://www.bookswagon.com/images/logos/logo-new.png" alt="logo" />
-        <TextField className="searchField" label="Search input" />
-    </div>
     <div className='forgetPasswordContentContainer'>
         <Card>
             <CardContent>

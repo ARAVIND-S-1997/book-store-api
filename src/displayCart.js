@@ -3,16 +3,13 @@ import { apiUrl } from "./homePage"
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import TextField from '@mui/material/TextField';
-import IconButton from '@mui/material/IconButton';
-import DeleteIcon from '@mui/icons-material/Delete';
+
+// import IconButton from '@mui/material/IconButton';
+// import DeleteIcon from '@mui/icons-material/Delete';
 import ButtonGroup from '@mui/material/ButtonGroup';
-import Box from '@mui/material/Box';
 import axios from "axios";
 import { authtoken, authemail } from "./homePage";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-
-
 
 
 export function DisplayCart() {
@@ -44,10 +41,6 @@ export function DisplayCart() {
     useEffect(getAllBookData, [])
     return (
         <div>
-            <div className="appBar">
-                <img src="https://www.bookswagon.com/images/logos/logo-new.png" alt="logo" />
-                <TextField className="searchField" label="Search input" />
-            </div>
             <div className="cartContainer">
                 {Books.map(({ BookName, Author, Price, Imageurl, _id }) => {
                     return (

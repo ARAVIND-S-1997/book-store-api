@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { apiUrl } from "./homePage"
 import { useParams } from 'react-router-dom';
 import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import { useHistory } from "react-router-dom";
@@ -30,11 +29,6 @@ export function BooksInfo() {
     useEffect(getParticularBookData, [id]);
     return (
         <div>
-            <div className="appBar">
-                <img src="https://www.bookswagon.com/images/logos/logo-new.png" alt="logo" />
-                <TextField className="searchField" label="Search input" />
-                {(authtoken)?<Button onClick={() => { history.push(`/cart`) }} className="appCart" color="error" variant="contained">Cart</Button>:""}
-            </div>
             <div className="bookInfoContainer">
                 <Card>
                     <div className="bookContainerParts">

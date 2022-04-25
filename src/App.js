@@ -1,4 +1,5 @@
 import './App.css';
+import { Navbar } from './navbar';
 import { Login } from "./loginPage"
 import { Switch, Route } from "react-router-dom";
 import { SignUp } from "./signUp";
@@ -10,13 +11,13 @@ import { DisplayCart } from './displayCart';
 import { Useraddress } from './AddressManager';
 import { Profiledashboard } from './profiledashbord';
 import { Changepassword } from './changepassword';
-import{Orderpage}from"./orderpage"
+import { Orderpage } from "./orderpage"
 
 
 function App() {
   return (
     <div className="App">
-
+      <Navbar />
       <Switch>
         <Route exact path="/">
           <Bookslist />
@@ -46,10 +47,10 @@ function App() {
           <Profiledashboard />
         </Route>
         <Route exact path="/changepassword/:token">
-          <Changepassword/>
+          <Changepassword />
         </Route>
         <Route exact path="/addressinfo">
-          <Orderpage/>
+          <Orderpage />
         </Route>
       </Switch>
     </div>

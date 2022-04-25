@@ -32,9 +32,7 @@ export function ForgetPassword() {
      }
     return (
     <div>
-        <div className="appBar">
-           
-        </div>
+       
         <div className='forgetPasswordContentContainer'>
             <Card>
                 <CardContent>

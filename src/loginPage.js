@@ -45,9 +45,6 @@ export function Login() {
     }
     return (
         <div >
-            <div className="appBar">
-    
-            </div>
             <div className='loginContentContainer'>
                 <Card>
                     <CardContent>

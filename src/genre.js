@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 import { apiUrl } from "./homePage"
 import { Display } from "./display"
 import { useParams } from 'react-router-dom';
-import TextField from '@mui/material/TextField';
-
 export function Genre() {
     const [Genre, setGenre] = useState([]);
     const { genre } = useParams();
@@ -13,13 +11,9 @@ export function Genre() {
             .then((data) => data.json())
             .then((abc) => setGenre(abc))
     }
-    useEffect(getParticularGenre, [])
+    useEffect(getParticularGenre, [genre])
     return (
         <div>
-            <div className="appBar">
-                <img src="https://www.bookswagon.com/images/logos/logo-new.png" alt="logo" />
-                <TextField className="searchField" label="Search input" />
-            </div>
             <div className="genreContentContainer">
                 {Genre.map(({ _id,
                     PublicationDate,

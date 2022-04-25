@@ -69,9 +69,7 @@ export function SignUp() {
 
     return (
         <div>
-            <div className="appBar">
-               
-            </div>
+       
             <div className="SignUPContentContainer">
                 <Card>
                     <CardContent>
