@@ -38,10 +38,10 @@ export function Changepassword(){
             const auth={
                 authtoken:token
             }
-            axios({url:`${apiUrl}/changepassword`,method:"post",headers:auth,data:data})
+            axios({url:`${apiUrl}/authchangpassword/changepassword`,method:"post",headers:auth,data:data})
             .then((response)=>{
                 if(response.status===200){
-                (history.push("/"))
+                (history.push("/login"))
                 }
                 else{
                 console.log("error occured")
@@ -69,7 +69,8 @@ export function Changepassword(){
                     onChange={handleChange}
                     onBlur={handleBlur}
                     className="changePasswordfields" 
-                    label="Password" 
+                    type="password"
+                    label="New password" 
                     variant="outlined" />
                       {errors.password && touched.password && errors.password}
                     <TextField 
@@ -79,6 +80,7 @@ export function Changepassword(){
                     onChange={handleChange}
                     onBlur={handleBlur}
                     className="changePasswordfields" 
+                    type="password"
                     label="Confirm Password" 
                     variant="outlined" />
   {errors.confirmpassword && touched.confirmpassword && errors.confirmpassword}

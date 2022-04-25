@@ -52,7 +52,8 @@ export function SignUp() {
     })
 
     const signUpReq = (datas) => {
-        axios({ url: `${apiUrl}/signup`, method: "POST", data: datas })
+        console.log(datas)
+        axios({ url: `${apiUrl}/authsignup/signup`, method: "POST", data: datas })
             .then((data) => {
                 if (data.status == 200) {
                     history.push("/login")
@@ -62,8 +63,7 @@ export function SignUp() {
                 }
 
             })
-
-            .catch()
+            .catch((error)=>console.log(error))
     }
 
 

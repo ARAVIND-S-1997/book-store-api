@@ -28,7 +28,7 @@ export function ForgetPassword() {
         onSubmit:((data)=>forgetpasswordreq(data))
     })
      const forgetpasswordreq=(useremail)=>{
-         axios({url:`${apiUrl}/forgetpassword`,method:"POST",data:useremail})
+         axios({url:`${apiUrl}/authforgetpassword/forgetpassword`,method:"POST",data:useremail})
      }
     return (
     <div>
