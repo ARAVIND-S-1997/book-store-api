@@ -28,18 +28,17 @@ export function Login() {
 
     })
     const loginReq = (datas) => {
-        axios({ url: `${apiUrl}/login`, method: "POST", data: datas })
+        axios({ url: `${apiUrl}/authlogin/login`, method: "POST", data: datas })
             .then((response) => {
-                console.log(response)
-                const token = response.data.finaltoken;
-                const email=response.data.emailid;
-                localStorage.setItem("token", token)
-                localStorage.setItem("emailid",email)
-                console.log(email,token)
-            })
-            .then((response)=>{
-                if(response.data.status===200){
-                    history.push("/useraddress")
+               
+                if(response.status===200){
+                    console.log(response)
+                    const token = response.data.finaltoken;
+                    const email=response.data.emailid;
+                    localStorage.setItem("token", token)
+                    localStorage.setItem("emailid",email)
+                    console.log(email,token)
+                    history.push("/")
                 }
             })
             .catch((error) => { if (error) { console.log(error) } })

@@ -46,27 +46,17 @@ export function Bookslist() {
 
     const history = useHistory();
 
-    useEffect(() => {
+    const getallbooks=() => {
         axios({ url: `${apiUrl}/books/allbooks`, method: "GET" })
             .then((response) => setBooks(response.data.Books));
-    }, [])
+    }
 
     const search = () => {
         axios({ url: `${apiUrl}/${searchbooks}`, method: "get" })
             .then((response) => setBooks(response.data.book))
     }
-
-    // useEffect(search, [searchbooks]);
-    // const getbooks = () => {
-    //     axios({ url: `${apiUrl}/allbooks`, method: "GET" })
-    //         .then((response) => setBooks(response.data.Books));
-    // }
-
-    // const particularbook = (bookname) => {
-    //   
-    // }
-
-    // useEffect(getbooks,[])
+useEffect(getallbooks)
+  
 
     // Material ui codes for dropdown menu in homepage
     const [anchorEl, setAnchorEl] = useState(null);
