@@ -18,7 +18,7 @@ export function BooksInfo() {
     console.log(Book)
     const history = useHistory();
     const getParticularBookData = () => {
-            fetch(`${apiUrl}/allbooks/${id}`, { method: "GET" })
+            fetch(`${apiUrl}/bookdetail/allbooks/${id}`, { method: "GET" })
             .then((data) => data.json())
             .then((abc)=>setBook(abc))   
     }
