@@ -14,7 +14,7 @@ import { Changepassword } from './changepassword';
 import { Orderpage } from "./orderpage"
 
 
-function App() {
+export default function App() {
   return (
     <div className="App">
       <Navbar />
@@ -57,5 +57,5 @@ function App() {
   );
 }
 
-export default App;
+
 
