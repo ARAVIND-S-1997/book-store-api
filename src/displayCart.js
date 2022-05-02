@@ -69,7 +69,7 @@ export function DisplayCart() {
                         </div>)
                 })}
                 <div>
-                    <Button onClick={() => { history.push("/addressinfo") }}>Place order</Button>
+                    <Button onClick={() => { history.push("/orderdashboard") }}>Place order</Button>
                 </div>
             </div>
         </div >

@@ -49,7 +49,7 @@ export default function App() {
         <Route exact path="/changepassword/:token">
           <Changepassword />
         </Route>
-        <Route exact path="/addressinfo">
+        <Route exact path="/orderdashboard">
           <Orderpage />
         </Route>
       </Switch>
