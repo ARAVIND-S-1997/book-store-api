@@ -21,7 +21,7 @@ const formValidation = yup.object({
     state: yup.string().required("State should not be empty"),
     pincode: yup.number().required("Pincode should not be empty"),
     landmark: yup.string().required("Landmark should not be empty"),
-    contactno: yup.C.required("Contact number should not be empty"),
+    contactno: yup.number().required("Contact number should not be empty"),
     alternativeno: yup.number().required("Alternative contact number should not be empty")
 });
 
