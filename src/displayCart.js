@@ -30,12 +30,14 @@ export function DisplayCart() {
     }
 
 
-    // const deleteCartBooks = (BookName) => {
-    //     console.log(BookName)
-    //     fetch(`${apiUrl}/deletecartBooks/${BookName}`, { method: "DELETE" })
-    //         .then(() => getAllBookData())
-
-    // }
+   const deleteBookData=(value)=>{
+    const auth = {
+        emailid: authemail,
+        token: authtoken
+    }
+    axios({ url: `${apiUrl}/deletecartbooks/${value}`, method: "POST", headers: auth })
+        .then((response) => setBooks(response.data.cart))  
+   }
 
 
 
@@ -58,7 +60,7 @@ export function DisplayCart() {
                                             <h3>{Quantity}</h3>
                                             <Button>-</Button>
                                         </ButtonGroup>
-                                        <IconButton aria-label="delete" size="large">
+                                        <IconButton onClick={()=>deleteBookData(_id)} aria-label="delete" size="large">
                                             <DeleteIcon />
                                         </IconButton>
                                     </div>
