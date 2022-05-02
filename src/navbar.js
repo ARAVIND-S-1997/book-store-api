@@ -141,6 +141,7 @@ export function Navbar(){
                         Logout
                     </MenuItem>
                 </Menu>
+                <Button onClick={()=>history.push("/cart")} color="error" variant="contained">Cart</Button>
 
             </div>}
             
