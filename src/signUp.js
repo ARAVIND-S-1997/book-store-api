@@ -53,7 +53,7 @@ export function SignUp() {
 
     const signUpReq = (datas) => {
         console.log(datas)
-        axios({ url: `${apiUrl}/authsignup/signup`, method: "POST", data: datas })
+        axios({ url: `${apiUrl}/signup`, method: "POST", data: datas })
             .then((data) => {
                 if (data.status == 200) {
                     history.push("/login")

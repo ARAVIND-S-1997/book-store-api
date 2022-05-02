@@ -7,7 +7,7 @@ export function Genre() {
     const { genre } = useParams();
     console.log(genre)
     const getParticularGenre = () => {
-        fetch(`${apiUrl}/genre/particular/${genre}`)
+        fetch(`${apiUrl}/genre/${genre}`)
             .then((data) => data.json())
             .then((abc) => setGenre(abc))
     }

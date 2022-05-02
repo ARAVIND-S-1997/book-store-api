@@ -28,7 +28,7 @@ export function Login() {
 
     })
     const loginReq = (datas) => {
-        axios({ url: `${apiUrl}/authlogin/login`, method: "POST", data: datas })
+        axios({ url: `${apiUrl}/login`, method: "POST", data: datas })
             .then((response) => {
                
                 if(response.status===200){

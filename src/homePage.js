@@ -21,7 +21,7 @@ export const authemail = localStorage.getItem("emailid")
 console.log(authtoken, authemail);
 
 // Application programming interface url
-export const apiUrl = "http://localhost:8000";
+export const apiUrl = "http://localhost:8000/books";
 
 export function Bookslist() {
     const [Books, setBooks] = useState([]);
@@ -29,7 +29,7 @@ export function Bookslist() {
     const history = useHistory();
 
     useEffect(() => {
-        axios({ url: `${apiUrl}/books/allbooks`, method: "GET" })
+        axios({ url: `${apiUrl}/allbooks`, method: "GET" })
             .then((response) => setBooks(response.data.Books));
     }, [])
 

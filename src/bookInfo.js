@@ -5,26 +5,27 @@ import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import { useHistory } from "react-router-dom";
+import axios from "axios";
 
-
-import {authtoken } from "./homePage";
+import { authtoken, authemail } from "./homePage";
 
 
 export function BooksInfo() {
     const [Book, setBook] = useState([]);
-    const [, setCartBook] = useState([]);
     const { id } = useParams();
     console.log(Book)
     const history = useHistory();
     const getParticularBookData = () => {
-            fetch(`${apiUrl}/bookdetail/allbooks/${id}`, { method: "GET" })
-            .then((data) => data.json())
-            .then((abc)=>setBook(abc))   
+        axios({ url: `${apiUrl}/particular/${id}`, method: "GET", })
+            .then((response) => setBook(response.data))
     }
-    const add = () => {
-        fetch(`${apiUrl}/cart/${id}`, { method: "GET" })
-            .then((data) => data.json())
-            .then((abc) => setCartBook(abc))
+    const add = (value) => {
+        const auth = {
+            token: authtoken,
+            emailid: authemail
+        }
+
+        axios({ url: `${apiUrl}/addtocart/${value}`, method: "POST", headers: auth })
     }
     useEffect(getParticularBookData, [id]);
     return (
@@ -44,8 +45,8 @@ export function BooksInfo() {
                             <h4>Published in:{Book.PublicationDate}</h4>
                             <h4>Published by:{Book.Publisher}</h4>
                             <Button onClick={() => {
-                                (authtoken)?add(id):(history.push("/login"))
-                                }} color="error" variant="contained">Add to cart</Button>
+                                (authtoken) ? add(id) : (history.push("/login"))
+                            }} color="error" variant="contained">Add to cart</Button>
                         </div>
                     </div>
                     <CardContent>
