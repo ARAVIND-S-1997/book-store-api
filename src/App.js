@@ -9,9 +9,10 @@ import { BooksInfo } from "./bookInfo"
 import { Genre } from "./genre"
 import { DisplayCart } from './displayCart';
 import { Useraddress } from './AddressManager';
-import { Profiledashboard } from './profiledashbord';
 import { Changepassword } from './changepassword';
 import { Orderpage } from "./orderpage"
+import { Editaddress } from './editaddress';
+import { Confirmorder } from './orderplaced';
 
 
 export default function App() {
@@ -43,14 +44,17 @@ export default function App() {
         <Route exact path="/useraddress">
           <Useraddress />
         </Route>
-        <Route exact path="/profiledashboard">
-          <Profiledashboard />
+        <Route exact path="/editaddress">
+          <Editaddress />
         </Route>
         <Route exact path="/changepassword/:token">
           <Changepassword />
         </Route>
         <Route exact path="/orderdashboard">
           <Orderpage />
+        </Route>
+        <Route exact path="/orderpage">
+          <Confirmorder/>
         </Route>
       </Switch>
     </div>

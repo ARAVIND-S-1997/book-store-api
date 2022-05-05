@@ -72,10 +72,8 @@
 
 .appBar{
   height: 7rem;
-  width:83rem;
-  background-color: #bc3232;
-  border-radius: 0.5rem;
-  margin: 1rem;
+  width:100%;
+  background-color: #bc3232; 
   display: flex;
   justify-content: space-around;
   flex-direction: row;
@@ -166,7 +164,7 @@
 
 .cartContainer{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-around;
 }
@@ -237,4 +235,9 @@
   display: flex;
   flex-direction:column;
   align-items: center;
+}
+
+.navbarimg{
+  height: 100px;
+  width: 150px;
 }

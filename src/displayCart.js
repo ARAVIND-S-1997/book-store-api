@@ -30,14 +30,15 @@ export function DisplayCart() {
     }
 
 
-   const deleteBookData=(value)=>{
-    const auth = {
-        emailid: authemail,
-        token: authtoken
+    const deleteBookData = (value) => {
+        console.log(value)
+        const auth = {
+            emailid: authemail,
+            token: authtoken
+        }
+        axios({ url: `${apiUrl}/deletecartbooks/${value}`, method: "POST", headers: auth })
+            .then((response) => setBooks(response.data.cart))
     }
-    axios({ url: `${apiUrl}/deletecartbooks/${value}`, method: "POST", headers: auth })
-        .then((response) => setBooks(response.data.cart))  
-   }
 
 
 
@@ -45,10 +46,10 @@ export function DisplayCart() {
     return (
         <div>
             <div className="cartContainer">
-                {Books.map(({ BookName, Quantity, _id }) => {
+                {Books.map(({ BookName, Quantity,_id}) => {
                     return (
                         <div className="cartContainerContent" key={_id}>
-                            <Card>
+                            {(BookName !== undefined) ? <Card>
                                 <img className="cartContentImg" src={BookName.Imageurl} alt='pic'></img>
                                 <CardContent>
                                     <div className="cartContinerTwo">
@@ -60,16 +61,17 @@ export function DisplayCart() {
                                             <h3>{Quantity}</h3>
                                             <Button>-</Button>
                                         </ButtonGroup>
-                                        <IconButton onClick={()=>deleteBookData(_id)} aria-label="delete" size="large">
+                                        <IconButton onClick={() => deleteBookData(BookName._id)} aria-label="delete" size="large">
                                             <DeleteIcon />
                                         </IconButton>
                                     </div>
                                 </CardContent>
-                            </Card>
+                            </Card> : null}
+
                         </div>)
                 })}
                 <div>
-                    <Button onClick={() => { history.push("/orderdashboard") }}>Place order</Button>
+                    <Button onClick={() => { history.push("/orderdashboard") }} color="error" variant="contained">Buy now</Button>
                 </div>
             </div>
         </div >
