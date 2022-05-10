@@ -1,14 +1,20 @@
-
-import { apiUrl } from './homePage';
-import { useEffect, useState } from 'react';
-import axios from "axios"
-import { authtoken, authemail } from "./homePage";
+// Material ui import statements
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
+import Button from '@mui/material/Button'
+
+// other files statements
+import { apiUrl } from './homePage';
+import { authtoken, authemail } from "./homePage";
+
+// hooks imports
+import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
+// packages imports
+import axios from "axios"
 
+// order page component
 export function Orderpage() {
     const history = useHistory();
     const [useraddressinfo, setuseraddressinfo] = useState([]);
@@ -17,7 +23,8 @@ export function Orderpage() {
     const [usercart, setusercart] = useState([]);
     console.log(usercart);
 
-    const orderpadedataReq = () => {
+    // orderpage api request
+    const orderpagedataReq = () => {
         const auth = {
             emailid: authemail,
             token: authtoken
@@ -30,7 +37,7 @@ export function Orderpage() {
             })
     }
 
-    useEffect(orderpadedataReq, [])
+    useEffect(orderpagedataReq, [])
 
     return (
 
@@ -71,7 +78,7 @@ export function Orderpage() {
             <div>
                 <h2>Mode of payment:</h2>
                 <h3>Cash on deliver</h3>
-                <Button onClick={()=>history.push("/orderpage")} color="error" variant="contained">Place order</Button>
+                <Button onClick={() => history.push("/orderpage")} color="error" variant="contained">Place order</Button>
             </div>
         </div>
     )

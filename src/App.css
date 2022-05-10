@@ -1,94 +1,104 @@
-.loginContentContainer,.forgetPasswordContentContainer{
-    margin-top: 3rem;
-    margin-left: 20rem;
-    display: flex;
-    background-color: white;
-    height: 35rem;
-    width: 30rem;
-    flex-direction: column;
-    flex-wrap: wrap;
-    border-radius: 0.5rem;
-    justify-content: flex-start;
-    align-items: flex-end;
-    align-content: stretch;
-  }
+.loginContentContainer,
+.forgetPasswordContentContainer {
+  margin-top: 3rem;
+  margin-left: 20rem;
+  display: flex;
+  background-color: white;
+  height: 35rem;
+  width: 30rem;
+  flex-direction: column;
+  flex-wrap: wrap;
+  border-radius: 0.5rem;
+  justify-content: flex-start;
+  align-items: flex-end;
+  align-content: stretch;
+}
 
-  .loginTitle,.signUpTitle,.forgetPasswordTitle,.welcomeContent{
-    font-family: 'Roboto Slab', serif;
-  }
-  
-  .loginfields,.signUpfields,.forgetPasswordfields{
-    width: 20rem;
-  }
-  
-  .SignUPContentContainer{
-    display: flex;
-      background-color: white;
-      height: 50rem;
-      width: 30rem;
-      flex-direction: column;
-      justify-content: space-evenly;
-      align-items: center;
-      margin-top: 1rem;
-      border-radius: 0.5rem;
-      margin-left: 25rem;
-  }
-  .note{
-    color: red;
-  }
-  
-  .welcomeContainer{
-    margin-top: 2rem;
-    background-color: white;
-    width:50rem;
-    height:3rem;
-    font-weight: bold;
-    text-align: center;
-    border-radius: 0.5rem; 
-  } 
-  .logoutfields{
-    width: 4rem;
-  }
+.loginTitle,
+.signUpTitle,
+.forgetPasswordTitle,
+.welcomeContent {
+  font-family: 'Roboto Slab', serif;
+}
 
-  .bookContainer{
-    height: 30rem;
-    width: 15rem;
-    margin: 5rem;
-    background-color: white;
-  }
+.loginfields,
+.signUpfields,
+.forgetPasswordfields {
+  width: 20rem;
+}
 
-  .bookPoster,.cartContentImg{
-    height: 20rem;
-    margin-top: 0%;
-    width:15rem;
-    object-fit:fill;
+.SignUPContentContainer {
+  display: flex;
+  background-color: white;
+  height: 50rem;
+  width: 30rem;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 1rem;
+  border-radius: 0.5rem;
+  margin-left: 25rem;
+}
 
-  }
- 
-.twocontainers{
+.note {
+  color: red;
+}
+
+.welcomeContainer {
+  margin-top: 2rem;
+  background-color: white;
+  width: 50rem;
+  height: 3rem;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 0.5rem;
+}
+
+.logoutfields {
+  width: 4rem;
+}
+
+.bookContainer {
+  height: 30rem;
+  width: 15rem;
+  margin: 5rem;
+  background-color: white;
+}
+
+.bookPoster,
+.cartContentImg {
+  height: 20rem;
+  margin-top: 0%;
+  width: 15rem;
+  object-fit: fill;
+
+}
+
+.twocontainers {
   display: flex;
 
 }
 
-.appBar{
+.appBar {
   height: 7rem;
-  width:100%;
-  background-color: #bc3232; 
+  width: 100%;
+  background-color: #bc3232;
   display: flex;
   justify-content: space-around;
   flex-direction: row;
   align-items: center;
 }
-.left{
+
+.left {
   margin: 2rem;
   height: 25rem;
   width: 15rem;
   background-color: white;
-  text-align:center;
+  text-align: center;
 
 }
 
-.leftCardContents{
+.leftCardContents {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -96,80 +106,80 @@
   justify-content: space-evenly;
 }
 
-.right{
+.right {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
 
-.appLogIN{
+.appLogIN {
   margin-left: 5rem;
 }
 
-.displayContainer{
+.displayContainer {
   width: 15rem;
   display: flex;
-  margin:1rem;
+  margin: 1rem;
   text-align: center;
 }
 
-.searchField{
- width: 30rem;
- background-color:  white;
- border-radius: 0.3rem;
+.searchField {
+  width: 30rem;
+  background-color: white;
+  border-radius: 0.3rem;
 
- margin: 2rem;
+  margin: 2rem;
 }
 
 
-.bookInfoContainer{
+.bookInfoContainer {
   margin: 2rem;
   width: 80rem;
   font-family: 'Poppins', sans-serif;
-} 
+}
 
-.bookInfoImg{
-  margin:2rem;
+.bookInfoImg {
+  margin: 2rem;
   height: 31rem;
   border-radius: 0.3rem;
 }
 
-.bookPartOne{
+.bookPartOne {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
 }
 
-.bookContainerParts{
+.bookContainerParts {
   display: flex;
 }
 
 
-.cartContainerContent{
+.cartContainerContent {
   width: 15rem;
   margin: 2rem;
- display: grid;
- grid-column: auto;
- 
- 
+  display: grid;
+  grid-column: auto;
+
+
 }
 
-.cartContinerTwo{
+.cartContinerTwo {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
   align-items: stretch;
 }
 
-.cartContainer{
+.cartContainer {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-around;
 }
 
-.loginContent{
+.loginContent {
   display: flex;
   height: 30rem;
   justify-content: space-between;
@@ -177,7 +187,7 @@
   flex-direction: column;
 }
 
-.SignUPContent{
+.SignUPContent {
   display: flex;
   height: 40rem;
   flex-direction: column;
@@ -185,7 +195,7 @@
   align-items: center;
 }
 
-.forgetPasswordContent{
+.forgetPasswordContent {
   display: flex;
   height: 15rem;
   flex-direction: column;
@@ -193,51 +203,61 @@
   justify-content: space-evenly;
 }
 
-.genreContentContainer{
+.genreContentContainer {
   display: flex;
   flex-wrap: wrap;
   align-content: flex-end;
   justify-content: space-evenly;
 }
 
-.temp{
+.temp {
   display: flex;
-  align-items:center;
+  align-items: center;
   flex-direction: column;
   margin: 2rem;
 }
 
 /* Profiledashboard styling */
 
-.profiledashboard-two-components{
+.profiledashboard-two-components {
   display: flex;
   flex-direction: row;
 }
 
-.profiledashboard-leftcomponent{
+.profiledashboard-leftcomponent {
   background-color: blue;
   height: 8rem;
   width: 300px;
-  border-radius:0.2rem;
+  border-radius: 0.2rem;
   margin-left: 1rem;
 }
 
-.profiledashboard-rightcomponent{
-  background-color:red;
-  height:100vh;
+.profiledashboard-rightcomponent {
+  background-color: red;
+  height: 100vh;
   width: 100%;
   border-radius: 0.2rem;
   margin-left: 1rem;
 }
 
 
-.profiledashboard-leftcomponent-content{
+.profiledashboard-leftcomponent-content {
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   align-items: center;
 }
 
-.navbarimg{
+.navbarimg {
   height: 100px;
   width: 150px;
+}
+
+.right-card {
+  margin-top: 2rem;
+  height: fit-content;
+  width: 1000px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
 }

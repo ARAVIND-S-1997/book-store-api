@@ -4,6 +4,7 @@ import CardContent from '@mui/material/CardContent';
 
 export function Display({ bookname, poster, rating, id }) {
     return (
+       
         <div className="displayContainer">
             <Card >
                 <img className="bookPoster" src={poster} alt="book poster" />
@@ -14,5 +15,6 @@ export function Display({ bookname, poster, rating, id }) {
                 </CardContent>
             </Card>
         </div>
+     
     )
 }

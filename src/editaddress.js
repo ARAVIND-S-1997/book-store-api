@@ -3,14 +3,19 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-// other import statements
+
+// packages imports
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import { authemail, authtoken } from "./homePage"
 import axios from 'axios';
-import { apiUrl } from './homePage';
+
+// hooks imports
 import { useHistory } from 'react-router-dom';
-import { useState,useEffect } from 'react';
+import { useState, useEffect } from 'react';
+
+// other files statements
+import { apiUrl } from './homePage';
+import { authemail, authtoken } from "./homePage"
 
 // Validatation Schema
 const formValidation = yup.object({
@@ -24,7 +29,8 @@ const formValidation = yup.object({
     alternativeno: yup.number().required("Alternative contact number should not be empty")
 });
 
-export function Editaddress(){
+// edit address component
+export function Editaddress() {
 
     const history = useHistory();
 
@@ -43,26 +49,25 @@ export function Editaddress(){
             alternativeno: useraddress.alternativeno
         },
         validationSchema: formValidation,
-        enableReinitialize:true,
+        enableReinitialize: true,
         onSubmit: (data) => editaddressReq(data)
     })
 
-
-    const orderpadedataReq = () => {
+    // orderpage api request
+    const orderpagedataReq = () => {
         const auth = {
             emailid: authemail,
             token: authtoken
         }
-
         axios({ url: `${apiUrl}/orderdashboard`, method: "POST", headers: auth })
             .then((response) => {
                 setuseraddress(response.data.addressinfo);
             })
     }
 
-    useEffect(orderpadedataReq, []);
+    useEffect(orderpagedataReq, []);
 
-
+    // edit address api request
     const editaddressReq = (valuess) => {
         const auth = {
             emailid: authemail,
@@ -75,100 +80,99 @@ export function Editaddress(){
                 }
             })
     }
-    return(
+    return (
         <div>
-      <Card>
+            <Card>
+                <CardContent>
+                    {/* form for edit address */}
+                    <form className='temp' onClick={handleSubmit}>
+                        <h3>Billing address</h3>
+                        <TextField
+                            id="name"
+                            name="name"
+                            value={values.name}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            className="searchField"
+                            label="Name" />
+                        {errors.name && touched.name && errors.name}
 
-<CardContent>
+                        <TextField
+                            id="address"
+                            name="address"
+                            value={values.address}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            className="searchField"
+                            label="Address" />
+                        {errors.address && touched.address && errors.address}
 
-    <form className='temp' onClick={handleSubmit}>
-        <h3>Billing address</h3>
-        <TextField
-            id="name"
-            name="name"
-            value={values.name}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            className="searchField"
-            label="Name" />
-        {errors.name && touched.name && errors.name}
+                        <TextField
+                            id="district"
+                            name="district"
+                            value={values.district}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            className="searchField"
+                            label="City/District/Town" />
+                        {errors.district && touched.district && errors.district}
 
-        <TextField
-            id="address"
-            name="address"
-            value={values.address}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            className="searchField"
-            label="Address" />
-        {errors.address && touched.address && errors.address}
+                        <TextField
+                            id="state"
+                            name="state"
+                            value={values.state}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            className="searchField"
+                            label="State" />
+                        {errors.state && touched.state && errors.state}
 
-        <TextField
-            id="district"
-            name="district"
-            value={values.district}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            className="searchField"
-            label="City/District/Town" />
-        {errors.district && touched.district && errors.district}
+                        <TextField
+                            id="pincode"
+                            name="pincode"
+                            value={values.pincode}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            className="searchField"
+                            label="Pincode" />
+                        {errors.pincode && touched.pincode && errors.pincode}
 
-        <TextField
-            id="state"
-            name="state"
-            value={values.state}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            className="searchField"
-            label="State" />
-        {errors.state && touched.state && errors.state}
+                        <TextField
+                            id="landmark"
+                            name="landmark"
+                            value={values.landmark}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            className="searchField"
+                            label="Landmark" />
+                        {errors.landmark && touched.landmark && errors.landmark}
 
-        <TextField
-            id="pincode"
-            name="pincode"
-            value={values.pincode}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            className="searchField"
-            label="Pincode" />
-        {errors.pincode && touched.pincode && errors.pincode}
+                        <TextField
+                            id="contactno"
+                            name="contactno"
+                            value={values.contactno}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            className="searchField"
+                            label="Contact number" />
+                        {errors.contactno && touched.contactno && errors.contactno}
 
-        <TextField
-            id="landmark"
-            name="landmark"
-            value={values.landmark}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            className="searchField"
-            label="Landmark" />
-        {errors.landmark && touched.landmark && errors.landmark}
+                        <TextField
+                            id="alternativeno"
+                            name="alternativeno"
+                            value={values.alternativeno}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            className="searchField"
+                            label="Alternative contact number" />
+                        {errors.alternativeno && touched.alternativeno && errors.alternativeno}
 
-        <TextField
-            id="contactno"
-            name="contactno"
-            value={values.contactno}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            className="searchField"
-            label="Contact number" />
-        {errors.contactno && touched.contactno && errors.contactno}
-
-        <TextField
-            id="alternativeno"
-            name="alternativeno"
-            value={values.alternativeno}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            className="searchField"
-            label="Alternative contact number" />
-        {errors.alternativeno && touched.alternativeno && errors.alternativeno}
-
-        <Button className="" color="error" variant="contained">
-            Save
-        </Button>
-    </form>
-</CardContent>
-</Card>
+                        <Button className="" color="error" variant="contained">
+                            Save
+                        </Button>
+                    </form>
+                </CardContent>
+            </Card>
         </div>
     )
 }

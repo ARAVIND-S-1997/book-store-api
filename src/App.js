@@ -1,3 +1,5 @@
+
+// files imports
 import './App.css';
 import { Navbar } from './navbar';
 import { Login } from "./loginPage"
@@ -14,7 +16,7 @@ import { Orderpage } from "./orderpage"
 import { Editaddress } from './editaddress';
 import { Confirmorder } from './orderplaced';
 
-
+// root componenet
 export default function App() {
   return (
     <div className="App">
@@ -54,7 +56,7 @@ export default function App() {
           <Orderpage />
         </Route>
         <Route exact path="/orderpage">
-          <Confirmorder/>
+          <Confirmorder />
         </Route>
       </Switch>
     </div>

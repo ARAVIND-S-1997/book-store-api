@@ -1,7 +1,11 @@
-import { useHistory } from "react-router-dom"
+// Material ui import statements
 import Button from '@mui/material/Button';
 
+// hooks imports
+import { useHistory } from "react-router-dom"
 
+
+// more button component (which is used in homepage)
 export function More({ id }) {
     const history = useHistory();
     return (

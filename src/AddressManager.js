@@ -3,14 +3,18 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-// other import statements
+
+// other files statements
+import { authemail, authtoken } from "./homePage"
+import { apiUrl } from './homePage';
+
+// packages imports
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import { authemail, authtoken } from "./homePage"
 import axios from 'axios';
-import { apiUrl } from './homePage';
-import { useHistory } from 'react-router-dom';
 
+// hooks imports
+import { useHistory } from 'react-router-dom';
 
 
 // Validatation Schema
@@ -44,6 +48,7 @@ export function Useraddress() {
         onSubmit: (data) => addaddressReq(data)
     })
 
+    // api req
     const addaddressReq = (values) => {
         const auth = {
             emailid: authemail,
@@ -59,9 +64,9 @@ export function Useraddress() {
     return (
         <div >
             <Card>
-
                 <CardContent>
 
+                    {/* address form */}
                     <form className='temp' onClick={handleSubmit}>
                         <h3>Billing address</h3>
                         <TextField

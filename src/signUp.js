@@ -1,15 +1,21 @@
+// Material ui import statements
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import CardContent from '@mui/material/CardContent';
 import Card from '@mui/material/Card';
+
+// other files statements
 import { apiUrl } from './homePage';
+
+// packages imports
 import { useFormik } from "formik"
 import * as yup from 'yup';
-import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
-// First name,Last name,Email id,Date of birth,Password validation code
+// hooks imports
+import { useHistory } from 'react-router-dom';
 
+//  schema
 const formValidation = yup.object({
     firstname: yup
         .string()
@@ -40,10 +46,10 @@ const formValidation = yup.object({
         .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/, "Password should have at least one uppercase letter, one lowercase letter, one number and one special character")
 })
 
-// Function component for signup operation
-
+// signup component
 export function SignUp() {
     const history = useHistory()
+
     const { values, errors, touched, handleChange, handleSubmit, handleBlur } = useFormik({
         initialValues: { firstname: "", lastname: "", emailid: "", dob: "", password: "" },
         validationSchema: formValidation,
@@ -51,6 +57,7 @@ export function SignUp() {
 
     })
 
+    // signup api request
     const signUpReq = (datas) => {
         console.log(datas)
         axios({ url: `${apiUrl}/signup`, method: "POST", data: datas })
@@ -63,17 +70,17 @@ export function SignUp() {
                 }
 
             })
-            .catch((error)=>console.log(error))
+            .catch((error) => console.log(error))
     }
 
 
     return (
         <div>
-       
+
             <div className="SignUPContentContainer">
                 <Card>
                     <CardContent>
-
+                        {/* signup form */}
                         <form className="SignUPContent" onSubmit={handleSubmit}>
                             <h1 className="signUpTitle">Sign Up</h1>
                             <TextField
@@ -87,6 +94,7 @@ export function SignUp() {
                                 label="First Name"
                                 variant="outlined" />
                             {errors.firstname && touched.firstname && errors.firstname}
+
                             <TextField
                                 id="lastname"
                                 name="lastname"
@@ -98,6 +106,7 @@ export function SignUp() {
                                 label="Last Name"
                                 variant="outlined" />
                             {errors.lastname && touched.lastname && errors.lastname}
+
                             <TextField
                                 id="emailid"
                                 name="emailid"
@@ -109,6 +118,7 @@ export function SignUp() {
                                 label="Email Id"
                                 variant="outlined" />
                             {errors.emailid && touched.emailid && errors.emailid}
+
                             <TextField
                                 id="dob"
                                 name="dob"
@@ -119,6 +129,7 @@ export function SignUp() {
                                 className="signUpfields"
                                 label="Date of birth" tsx={{ width: 220 }} InputLabelProps={{ shrink: true, }} />
                             {errors.dob && touched.dob && errors.dob}
+
                             <TextField
                                 id="password"
                                 name="password"
@@ -130,6 +141,7 @@ export function SignUp() {
                                 label="Password"
                                 variant="outlined" />
                             {errors.password && touched.password && errors.password}
+
                             <Button className="signUpfields" type="submit" variant="contained">Sign Up</Button>
                         </form>
                     </CardContent>

@@ -1,17 +1,27 @@
-import { useEffect, useState } from "react";
+// other files statements
 import { apiUrl } from "./homePage"
 import { Display } from "./display"
+
+// hooks imports
+import { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
+
+// genre component
 export function Genre() {
+
     const [Genre, setGenre] = useState([]);
     const { genre } = useParams();
     console.log(genre)
+
+    // genre api request
     const getParticularGenre = () => {
         fetch(`${apiUrl}/genre/${genre}`)
             .then((data) => data.json())
             .then((abc) => setGenre(abc))
     }
+
     useEffect(getParticularGenre, [genre])
+
     return (
         <div>
             <div className="genreContentContainer">

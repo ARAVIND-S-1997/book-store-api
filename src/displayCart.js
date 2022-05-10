@@ -1,24 +1,30 @@
-import { useEffect, useState } from "react"
-import { apiUrl } from "./homePage"
+// Material ui import statements
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ButtonGroup from '@mui/material/ButtonGroup';
-import axios from "axios";
+
+// hooks imports
+import { useEffect, useState } from "react"
+import { useHistory } from "react-router-dom";
+
+// other files statements
+import { apiUrl } from "./homePage"
 import { authtoken, authemail } from "./homePage";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
+// packages imports
+import axios from "axios";
 
+// cart Component
 export function DisplayCart() {
 
     const history = useHistory();
     const [Books, setBooks] = useState([])
     console.log(Books)
-    // const finaldata=
 
+    // get books from cart request
     const getAllBookData = () => {
         const auth = {
             emailid: authemail,
@@ -26,10 +32,9 @@ export function DisplayCart() {
         }
         axios({ url: `${apiUrl}/cartBooks`, method: "POST", headers: auth })
             .then((response) => setBooks(response.data.cart))
-
     }
 
-
+    // delete books from cart request
     const deleteBookData = (value) => {
         console.log(value)
         const auth = {
@@ -40,13 +45,12 @@ export function DisplayCart() {
             .then((response) => setBooks(response.data.cart))
     }
 
-
-
     useEffect(getAllBookData, [])
+    
     return (
         <div>
             <div className="cartContainer">
-                {Books.map(({ BookName, Quantity,_id}) => {
+                {Books.map(({ BookName, Quantity, _id }) => {
                     return (
                         <div className="cartContainerContent" key={_id}>
                             {(BookName !== undefined) ? <Card>

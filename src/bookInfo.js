@@ -1,20 +1,30 @@
-import { useEffect, useState } from "react";
-import { apiUrl } from "./homePage"
-import { useParams } from 'react-router-dom';
+// Material ui import statements
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import { useHistory } from "react-router-dom";
-import axios from "axios";
 
+// other files statements
+import { apiUrl } from "./homePage"
 import { authtoken, authemail } from "./homePage";
 
+// other packages statements
+import axios from "axios";
 
+// hooks imports
+import { useParams } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
+
+
+// Book information componenet
 export function BooksInfo() {
+
     const [Book, setBook] = useState([]);
+    console.log(Book);
     const { id } = useParams();
-    console.log(Book)
     const history = useHistory();
+
+    // api request
     const getParticularBookData = () => {
         axios({ url: `${apiUrl}/particular/${id}`, method: "GET", })
             .then((response) => setBook(response.data))
